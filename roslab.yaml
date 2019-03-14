@@ -16,3 +16,7 @@ pip3:
   - torch
   - torchvision
 
+custom:
+  - luarocks install nn
+  - luarocks install cudnn
+

@@ -110,6 +110,8 @@ RUN apt-get -o Acquire::ForceIPv4=true update \
 
 ##################################### PIP3 #####################################
 
+RUN pip3 install --upgrade pip
+
 RUN pip3 install  \
     torch \
     torchvision
@@ -119,6 +121,11 @@ RUN pip3 install  \
 RUN mkdir ${HOME}/sparse-to-dense
 
 COPY . ${HOME}/sparse-to-dense
+
+################################### CUSTOM #####################################
+
+RUN luarocks install nn \
+ && luarocks install cudnn
 
 ##################################### TAIL #####################################
 
